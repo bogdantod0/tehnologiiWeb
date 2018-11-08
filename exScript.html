@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<TITLE>LAB 6 functions</TITLE>
+	<script>
+function reverseMy(str){	
+		
+		var strRev="";
+	for (var i = str.length - 1;i>=0;i--)
+		strRev+=str[i];
+
+
+return strRev;
+}
+
+function removerChar(str, char_pos) 
+ {
+  part1 = str.substring(0, char_pos);
+  part2 = str.substring(char_pos + 1, str.length);
+  return (part1 + part2);
+ }
+
+ function div37(number){
+ 	if(number%3 ==0)
+ 		return true;
+ 	if(number%7 ==0)
+ 		return true;
+else 
+	return false;
+
+ }
+
+ function isNumeric(a){
+ 	
+ 	if ((typeof a) == "number")
+ 		return true
+ 	else 
+ 		return false;
+
+
+ }
+
+ function checkProp(prop1,prop2,prop3,propcheck){
+
+ 	var props = {
+					p1:prop1 ,
+					p2:prop2,
+					p3:prop3
+ 				};
+if(props.p1==propcheck || props.p2==propcheck || props.p3==propcheck)
+	return true
+else
+	return false;
+
+ }
+
+</script>
+
+
+
+</head>
+<P>LAB EXERCICES</P>
+
+
+<body>
+
+
+	
+</body>
+
