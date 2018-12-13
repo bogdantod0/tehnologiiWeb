@@ -5,11 +5,45 @@ var fs=require('fs');
 const request = require('request');
 
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database:"webtest"
+});
+var stmt1="SELECT * FROM post INNER JOIN comments ON post.id=comments.post_id";
+var stmt="SELECT * FROM post";
+
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+
+  con.query(stmt, function (err, result) {
+    if (err) throw err;
+    console.log( result);
+  });
+
+});
 
 
 app.use(express.static('public'))
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+		app.get('/post',(req,res)=>{
+		 con.query(stmt, function (err, result) {
+		    if (err) throw err;
+		    console.log( result);
+		    res.send(result);
+		  });
+
+
+		})
+
 
 
 
@@ -18,7 +52,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 		console.log(contents);
 	});*/
 
-
+/*
 console.log('after calling readFile');
 
  app.get('/readFile',(req,res)=>{ 
@@ -40,6 +74,9 @@ console.log('after calling readFile');
 	});
  });
  	
+*/
+
+
 
 
 
